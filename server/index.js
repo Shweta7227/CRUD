@@ -12,7 +12,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/crud")
   .catch(err => console.error(err))
 
   //API
-app.post("/createUsers", (req,res) => {
+app.post("/createUser", (req,res) => {
     UserModel.create(req.body)
     .then(users => res.json(users))
     .catch(err => res.json(err))
