@@ -10,6 +10,12 @@ app.use(express.json())
 mongoose.connect("mongodb://127.0.0.1:27017/crud")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.error(err))
+//API to get the data on user page
+app.get("/", (req,res) => {
+    UserModel.find({})
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
 
   //API
 app.post("/createUser", (req,res) => {
