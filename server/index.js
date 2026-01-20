@@ -33,6 +33,13 @@ app.put('/updateUser/:id', (req, res) => {
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
+//for deletion od record
+app.delete('/deleteUser/:id', (req, res) =>{
+    const id= req.params.id;
+    UserModel.findByIdAndDelete({_id: id})
+    .then(users => res.json(res))
+    .catch(err => res.json(err))
+})
 
   //API
 app.post("/createUser", (req,res) => {
