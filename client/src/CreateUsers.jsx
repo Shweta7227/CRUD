@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import axios from'axios'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; //import the navigation lib
 function CreateUsers(){
     const[name, setName]= useState()
     const[email, setEmail]= useState()
     const[age, setAge]= useState()
-    const navigate = useNavigate()
+    const navigate = useNavigate()  //use navigation method
     const Submit = (e) => {
         e.preventDefault();
         console.log("Submitting:", name, email, age);
@@ -16,8 +16,8 @@ function CreateUsers(){
             age
         })
         .then(result => {
-            console.log("Success:", result)
-            navigate('/')
+            console.log("Success:", result) //succesfully go to the database
+            navigate('/')  // Navigate to  Userpage(Main Page)
         })
         .catch(err => {
             console.error("Axios error:", err);
