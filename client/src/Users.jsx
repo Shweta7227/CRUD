@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Users(){
-    const [users,setUsers]=useState([{
-        Name: "Shweta" , Email: "s1@gmail.com", Age: 22
-    }])
+    const [users,setUsers]=useState([
+        {
+        Name: "Shweta" , Email: "s1@gmail.com", Age: 22}
+    ])
     return(
         <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
             <div className='w-50 bg-white rounded p-3'>
@@ -20,14 +21,14 @@ function Users(){
                     </thead>
                     <tbody>
                         {
-                            users.map((user) => {
-                                return <tr>
+                            users.map((user, index) => {
+                                return <tr key={index}>
                                     <td>{user.Name}</td>
                                     <td>{user.Email}</td>
                                     <td>{user.Age}</td>
                                     <td>
                                         <Link to="/update" className='btn btn-success'>Update </Link>
-                                        <button>Delete</button>
+                                        <button className='btn btn-danger'>Delete</button>
                                     </td>
                                 </tr>
                             })
